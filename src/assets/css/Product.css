@@ -1,0 +1,109 @@
+.CategoryDiv{
+    flex-direction: column;
+    padding: 10px;
+    line-height: 1px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgb(27 36 72 / 16%), 0 10px 20px -10px rgb(13 17 33 / 25%);
+    border-radius: 8px;
+    margin: 10px;
+}
+.imgCategory{
+    border-radius: 10px;
+    width:100px;
+    height:100px;
+}
+.CategoryDiv a{
+    text-align: center;
+}
+.divContainerCard{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+.ProductCardDiv{
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 1px 3px rgb(27 36 72 / 16%), 0 10px 20px -10px rgb(13 17 33 / 25%);
+    border-radius: 8px;
+    margin: 10px;
+    padding: 32px;
+    flex: 0 0 33.333333%;
+    align-items: center;
+    
+}
+.emptyCardDiv{
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 1px 3px rgb(27 36 72 / 16%), 0 10px 20px -10px rgb(13 17 33 / 25%);
+    border-radius: 8px;
+    margin: 10px;
+    padding: 32px;
+   
+    align-items: center;
+    
+}
+.CategoryDiv a{
+    text-align: center;
+    list-style: none;
+  
+}
+.imgProduct{
+    border-radius: 10px;
+    width:100%;
+    height:100%;
+}
+.ProductCardDiv a{
+    text-align: center;
+}
+
+.hvr-growImg {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .hvr-growImg:hover, .hvr-growImg:focus, .hvr-growImg:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+ 
+  .filter{
+    border: 1px solid #000;
+    width: 200px;
+    /* height: 200px; */
+    display: block;
+    margin: 10px;
+    padding: 15px;
+  }
+  .divContainterRating{
+    display: grid;
+    justify-content: start;
+  }
+
+  .divContainterColors{
+    display: grid;
+    justify-content: start;
+    height: 200px;
+    padding: 15px;
+    scroll-behavior: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  /* .filter h1{
+    text-align: center;
+    margin-top: -10px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+.filter h1 span{
+    background-color: white;
+} */
