@@ -88,7 +88,7 @@ const FiltersComponent = (props) => {
             {
                 ["5",'4','3','2','1'].map((item)=>{
                     return(
-                            <a onClick={()=>handleChangeRating(item)} key={item}>
+                            <a href="#filter" onClick={()=>handleChangeRating(item)} key={item}>
                                 <Col  >
                                     <Rating  productrat={item}/><br/>
                                 

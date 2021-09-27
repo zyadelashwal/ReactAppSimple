@@ -14,7 +14,7 @@ const Categories = (props) => {
                            Data&& Data.map((item) =>{
                                 return( 
                                 <div className=' hvr-pulse CategoryDiv' key={item.name}>
-                                    <a href="javascript:void(0)" onClick={()=>CategoriesSearch(item.id)}>
+                                    <a href="#filter" onClick={()=>CategoriesSearch(item.id)}>
                                             <img className='imgCategory' src={item.image} alt="tes" />
                                             <h4>{item.name}</h4>
                                     </a>
