@@ -6,8 +6,9 @@ export  function  fetchProduct() {
   return async (dispatch)  => {
     dispatch(getProduct())
 
-    await axios.get(`http://test-api.edfa3ly.io/product`)
+    await axios.get(`https://fakestoreapi.com/products`)
         .then(function (response) {
+          console.log(response.data)
             return(dispatch(getProductSuccess(response.data)))
         })
         .catch(err => dispatch(getProductFailure(err)))

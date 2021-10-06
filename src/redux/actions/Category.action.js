@@ -6,7 +6,7 @@ export  function  fetchCategory() {
   return async (dispatch)  => {
     dispatch(getCategory())
 
-    await axios.get(`http://test-api.edfa3ly.io/category`)
+    await axios.get(`https://fakestoreapi.com/products/categories`)
         .then(function (response) {
             return(dispatch(getCategorySuccess(response.data)))
         })

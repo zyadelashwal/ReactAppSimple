@@ -19,23 +19,65 @@
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
+    width: 90%;
 }
 .ProductCardDiv{
-    flex-direction: column;
+    flex-direction: row;
     background: #fff;
-    box-shadow: 0 1px 3px rgb(27 36 72 / 16%), 0 10px 20px -10px rgb(13 17 33 / 25%);
-    border-radius: 8px;
+    /* box-shadow: 0 1px 3px rgb(27 36 72 / 16%), 0 10px 20px -10px rgb(13 17 33 / 25%); */
+   
     margin: 10px;
     padding: 32px;
-    flex: 0 0 33.333333%;
-    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #e8e8e8;
     
+}
+.DetailsClass
+{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    width: 36%;
+    margin-left: 16px;
+    margin-right: 128px;
+}
+.DetailsInner{
+    display: -ms-flexbox;
+    display: block;
+    border-bottom: 1px solid #e8e8e8;
+   
+}
+.DetailsInner-2{
+    display: -ms-flexbox;
+    display: block;
+    
+    text-align: left;
+    font: normal normal normal 14px/24px ;
+    letter-spacing: 0px;
+    color: #262626;
+    opacity: 1;
+}
+.btn{
+    background: #F6F7F8  0% 0% no-repeat padding-box;
+
+opacity: 1;
+}
+.spanReview{
+    text-align: left;
+    font: normal normal bold 14px/17px ;
+    letter-spacing: 0.35px;
+    color: #C1C8CE;
+    opacity: 1;
+    padding-left: 8px;
 }
 .emptyCardDiv{
     flex-direction: column;
     background: #fff;
-    box-shadow: 0 1px 3px rgb(27 36 72 / 16%), 0 10px 20px -10px rgb(13 17 33 / 25%);
-    border-radius: 8px;
+    /* box-shadow: 0 1px 3px rgb(27 36 72 / 16%), 0 10px 20px -10px rgb(13 17 33 / 25%); */
+   
     margin: 10px;
     padding: 32px;
    
@@ -48,12 +90,15 @@
   
 }
 .imgProduct{
-    border-radius: 10px;
-    width:100%;
-    height:100%;
+    /* border-radius: 10px; */
+    width:180px;
+    height:180px;
 }
 .ProductCardDiv a{
     text-align: center;
+    border: 3px solid #F6F7F8;
+border-radius: 4px;
+opacity: 1;
 }
 
 .hvr-growImg {
@@ -74,12 +119,21 @@
 
  
   .filter{
-    border: 1px solid #000;
+    
     width: 200px;
     /* height: 200px; */
     display: block;
     margin: 10px;
     padding: 15px;
+    background-color: #F6F7F8;
+  }
+  .SortDiv{
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    background-color: #F6F7F8;
+    padding: 0px 10px;
+
   }
   .divContainterRating{
     display: grid;

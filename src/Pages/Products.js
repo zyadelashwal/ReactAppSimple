@@ -1,11 +1,12 @@
 import React, { Fragment, useEffect ,useState } from 'react';
 import { Container, Row, Col,Spinner } from 'reactstrap';
+
 // ** Store & Actions
 import { fetchCategory } from '../redux/actions/Category.action'
 import {fetchProduct} from '../redux/actions/Products.action';
 import { useDispatch, useSelector } from 'react-redux'
 
-import CategoriesComponent from '../components/Categories';
+// import CategoriesComponent from '../components/Categories';
 import ProductCard from '../components/ProductCard';
 import FiltersComponent from '../components/filtersComponent';
 
@@ -21,13 +22,12 @@ const Products = (props) => {
 
     const [filterProduct, setFilterProduct]=useState([]);
     const [filterProductByCate, setFilterProductByCate]=useState([])
-    const [CategorySelect , setCategorySelect]=useState([]);
     
-    const CategoriesData = useSelector(state => state.Category.Categories);
+     const CategoriesData = useSelector(state => state.Category.Categories);
     const ProductsData = useSelector(state => state.Products.Products);
 
     useEffect(() => {
-         dispatch( fetchCategory());
+          dispatch( fetchCategory());
          dispatch( fetchProduct());
       },[])
      
@@ -38,23 +38,23 @@ const Products = (props) => {
 
       useEffect(() => {
         
-         let filterData=ProductsData.length>0?ProductsData.filter(product => product.categoryId===CategorySelect):[]
+        //  let filterData=ProductsData.length>0?ProductsData.filter(product => product.categoryId===CategorySelect):[]
         
-        setFilterProduct(filterData)        
-        setFilterProductByCate(filterData)
-     },[CategorySelect])
+        setFilterProduct(ProductsData)        
+         setFilterProductByCate(ProductsData)
+     },[ProductsData])
 
      const srch=(SearchObj) => {
-
+      console.log(SearchObj)
           let filterData=filterProductByCate.filter(product => {
-            if((SearchObj.color.length==0)&&(SearchObj.rating==''))
+            if((SearchObj.category.length==0)&&(SearchObj.rating==''))
           return  (SearchObj.range[0] <= product.price&&product.price <= SearchObj.range[1])
           else if(SearchObj.rating=='')
-          return (SearchObj.color.includes(product.color) )  && (SearchObj.range[0] <= product.price&&product.price <= SearchObj.range[1])
-          else if(SearchObj.color.length==0)
+          return (SearchObj.category.includes(product.category) )  && (SearchObj.range[0] <= product.price&&product.price <= SearchObj.range[1])
+          else if(SearchObj.category.length==0)
           return (SearchObj.rating==product.rating)  && (SearchObj.range[0] <= product.price&&product.price <= SearchObj.range[1])
           else
-          return  (SearchObj.color.includes(product.color) )  &&  (SearchObj.rating==product.rating)  &&(SearchObj.range[0] <= product.price&&product.price <= SearchObj.range[1])
+          return  (SearchObj.category.includes(product.category) )  &&  (SearchObj.rating==product.rating)  &&(SearchObj.range[0] <= product.price&&product.price <= SearchObj.range[1])
           })
 
      setFilterProduct(filterData)        
@@ -62,6 +62,7 @@ const Products = (props) => {
      
   }
      
+ 
     return (
         <Fragment>
              <Container style={{display: 'block',}} class='ContainerStyle'>
@@ -71,7 +72,7 @@ const Products = (props) => {
        
         <Col  >
             <Row>
-                <CategoriesComponent Data={CategoriesData} CategoriesSearch={setCategorySelect}/>
+                {/* <CategoriesComponent Data={CategoriesData} CategoriesSearch={setCategorySelect}/> */}
             </Row>
          
         </Col>
@@ -79,15 +80,15 @@ const Products = (props) => {
       </Row>
       <Row style={{margin:'10px 30px'}}>
         <Col xs='4' >
-            <FiltersComponent Colors={Colors} SearchCallBack={srch}/>
+            <FiltersComponent Categorys={CategoriesData} SearchCallBack={srch}/>
         </Col>
         <Col xs='8'  >
            
      
             <Row>
-               {filterProduct.length>0? <ProductCard Data={filterProduct}/> : <div style={{width:'900px'}} className='emptyCardDiv'>
+               {filterProduct.length>0? <ProductCard Data={filterProduct} /> : <div style={{width:'900px'}} className='emptyCardDiv'>
                <Spinner size="lg"  type="grow" color="primary" /><br/>
-               <p><b>Please choose Category</b></p>
+              
                </div>}
             </Row>
         </Col>

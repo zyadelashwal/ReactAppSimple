@@ -4,29 +4,29 @@ import {  Button, Col } from 'reactstrap';
 import  { Range } from 'rc-slider';
 import Rating   from '../components/rating';
 
-const ObjSearch={color:[],range:[0,1500],rating:''};
+const ObjSearch={category:[],range:[0,1500],rating:''};
 
 const FiltersComponent = (props) => {
-  const {Colors, SearchCallBack}=props;
+  const {Categorys, SearchCallBack}=props;
 
   const [itemRange, setitemRange] = useState([0,1500]);
 
     
   
     
-      const handleChangeColor=(event)=> {
+      const handleChangecategory=(event)=> {
         // Here, we invoke the callback with the new value
        
-       if(ObjSearch.color.includes(event.target.value)){
-        const index = ObjSearch.color.indexOf(event.target.value);
+       if(ObjSearch.category.includes(event.target.value)){
+        const index = ObjSearch.category.indexOf(event.target.value);
         if (index > -1) {
-            ObjSearch.color.splice(index, 1);
+            ObjSearch.category.splice(index, 1);
         }
        }else{
         
-        ObjSearch.color.push(event.target.value)
+        ObjSearch.category.push(event.target.value)
        }
-       
+       SearchCallBack(ObjSearch);
         
     }
 
@@ -50,8 +50,8 @@ const FiltersComponent = (props) => {
     return (
    
         <div >
-        <fieldset className='emptyCardDiv' style={{width:'100%'}}>
-            <legend >Filter</legend>
+        <div className='emptyCardDiv' style={{width:'100%'}}>
+           
            <div className='filter'>
            <p>Price range</p>
            <div>
@@ -64,16 +64,16 @@ const FiltersComponent = (props) => {
                <Range style={{padding:'20px 0px 0px 0px'}} defaultValue={[0,1500]} min={0} max={1500} onChange={(e)=>handleChangeRange(e)} />
            </div>
            <div className='filter'>
-           <p>Color</p>
+           <p>category</p>
          
            <div className='divContainterColors'>
            
            {
-               Colors.map((item)=>{
+               Categorys.map((item)=>{
                    return(
                        <Col style={{display:'block'}}>
-                            <input type="checkbox" id={item.color} name="colors" onChange={(e)=>handleChangeColor(e)} value={item.color}/>
-                             <label for={item.color}> {item.color}</label><br/>
+                            <input type="checkbox" id={item} name="categorys" onChange={(e)=>handleChangecategory(e)} value={item}/>
+                             <label for={item}> {item}</label><br/>
                        </Col>
 
                    )
@@ -98,34 +98,17 @@ const FiltersComponent = (props) => {
                     )
                 })
             }
-            <Button onClick={()=>handleChangeRating('')}>Clear</Button>
+            {/* <a  href="#filter" className="btn" onClick={()=>handleChangeRating('')}>Clear</a> */}
 
-             
-              {/* <Col onClick={handleChangeRating(4)} >
-                <Rating productrat={4}/><br/>
-                
-              </Col>
-              <Col onClick={handleChangeRating(3)}>
-                
-                <Rating productrat={3}/><br/>
               
-              </Col>
-              <Col onClick={handleChangeRating(2)} >
-                
-                <Rating productrat={2}/><br/>
-                
-              </Col>
-              <Col  onClick={handleChangeRating(1)}>
-                
-                <Rating productrat={1}/><br/>
-              </Col> */}
+           
              </div>
               
               
                
            </div>
         
-        </fieldset>
+        </div>
         </div>
         
    
